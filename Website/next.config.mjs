@@ -1,12 +1,10 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  output: "export",
+  basePath: "/Melo-Beauty-Lounge",
+  trailingSlash: true,
   images: {
-    formats: ["image/avif", "image/webp"],
-    localPatterns: [
-      {
-        pathname: "/images/**",
-      },
-    ],
+    unoptimized: true,
   },
 };
 
