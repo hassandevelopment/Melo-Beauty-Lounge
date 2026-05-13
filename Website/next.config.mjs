@@ -4,7 +4,8 @@ const nextConfig = {
   basePath: "/Melo-Beauty-Lounge",
   trailingSlash: true,
   images: {
-    unoptimized: true,
+    loader: "custom",
+    loaderFile: "./imageLoader.js",
   },
 };
 
