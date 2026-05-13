@@ -1,0 +1,24 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npx skills *)",
+      "Bash(npx skillfish *)",
+      "Bash(node serve.mjs)",
+      "Bash(git add *)",
+      "Bash(git commit -m *)",
+      "Bash(git push *)",
+      "Bash(gh auth *)",
+      "Bash(gh api *)",
+      "Bash(brew install *)",
+      "Bash(open http://localhost:*)",
+      "Bash(open -a \"Google Chrome\" *)",
+      "Bash(screencapture -x *)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\" http://localhost:*)",
+      "Bash(lsof -ti:*)",
+      "Bash(curl -s http://localhost:*)",
+      "Read(//Users/hassanalnajjar/Downloads/**)",
+      "Read(//Users/hassanalnajjar/Desktop/**)",
+      "WebFetch(domain:github.com)"
+    ]
+  }
+}
