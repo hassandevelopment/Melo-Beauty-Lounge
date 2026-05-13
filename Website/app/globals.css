@@ -1,0 +1,98 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Sansation from Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Sansation:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Inter:wght@400;500;600&display=swap');
+
+:root {
+  --color-bg:        #E5D5C8;
+  --color-bg-soft:   #EFE3D8;
+  --color-pink:      #EBC4BD;
+  --color-pink-deep: #D4A8A0;
+  --color-ink:       #1A1A1A;
+  --color-ink-soft:  #3A3A3A;
+  --color-cream:     #F5EDE5;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--color-bg);
+  color: var(--color-ink);
+  font-family: "Inter", system-ui, sans-serif;
+  font-size: 17px;
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Display font helper */
+.font-display {
+  font-family: "Sansation", system-ui, sans-serif;
+}
+
+/* Reveal animation */
+.reveal {
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity 650ms cubic-bezier(0.16, 1, 0.3, 1),
+              transform 650ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+.reveal.visible {
+  opacity: 1;
+  transform: none;
+}
+
+/* Terrazzo divider using CSS gradient dots */
+.terrazzo-strip {
+  position: relative;
+  overflow: hidden;
+}
+.terrazzo-strip::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    radial-gradient(circle, #D4A8A0 1.5px, transparent 1.5px),
+    radial-gradient(circle, #1A1A1A 1px, transparent 1px),
+    radial-gradient(circle, #FFFFFF 1.5px, transparent 1.5px),
+    radial-gradient(circle, #8B6F5C 1px, transparent 1px);
+  background-size:
+    120px 80px,
+    90px 60px,
+    100px 70px,
+    80px 50px;
+  background-position:
+    10px 15px,
+    45px 30px,
+    70px 10px,
+    25px 45px;
+  opacity: 0.35;
+  pointer-events: none;
+}
+
+/* Focus visible */
+:focus-visible {
+  outline: 2px solid var(--color-pink-deep);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+  .reveal {
+    opacity: 1;
+    transform: none;
+  }
+}

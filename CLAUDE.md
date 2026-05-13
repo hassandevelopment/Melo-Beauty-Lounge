@@ -43,7 +43,7 @@ This repo builds the public marketing website for **Mélo Beauty Lounge**, a lad
 - **Framework:** Next.js 14 (App Router) — chosen for SEO, ISR, and `next/image`.
 - **Language:** TypeScript.
 - **Styling:** Tailwind CSS with custom design tokens (see §3).
-- **Hosting:** Vercel.
+- **Hosting:** TBD.
 - **Booking integration:** WhatsApp deeplink only.
 - **Analytics:** Plausible (privacy-respecting, no cookie banner required).
 - **Forms backend:** None at launch (no contact form — WhatsApp covers it).
@@ -317,7 +317,7 @@ pnpm format
 ## 9a. Git & Deploy Workflow
 
 **Repo:** https://github.com/hassandevelopment/Melo-Beauty-Lounge
-**Hosting:** Vercel (auto-deploy on push to `main`)
+**Hosting:** TBD
 
 After every confirmed change:
 1. Verify on `http://localhost:3000` (never `file://`)
