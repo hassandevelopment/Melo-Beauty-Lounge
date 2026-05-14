@@ -473,8 +473,9 @@
       #main-nav { backdrop-filter: none !important; -webkit-backdrop-filter: none !important; background: rgba(217,202,192,1) !important; }
       /* No hover transforms on touch — they cause stuck states and GPU churn */
       .btn-primary:hover, .btn-outline:hover, .btn-outline-light:hover,
-      .svc-cat-tile:hover, .svc-card:hover, .gallery-item:hover,
-      .pillar.visible:hover, .wa-fab:hover { transform: none !important; box-shadow: inherit !important; background: inherit; }
+      .svc-cat-tile:not(.active):hover, .svc-card:hover, .gallery-item:hover,
+      .pillar.visible:hover, .wa-fab:hover { transform: none !important; box-shadow: inherit !important; }
+      .svc-cat-tile:not(.active):hover { background: #fff !important; border-color: rgba(184,90,56,.18) !important; }
       .gallery-item:hover img { transform: none !important; }
       /* Remove will-change on mobile — wastes VRAM */
       .pillar { will-change: auto !important; }
@@ -615,14 +616,7 @@
 <section id="services" style="background:#FFF8F2; padding:100px 0;">
   <div class="max-w-5xl mx-auto px-6 md:px-10">
 
-    <div class="reveal" style="margin-bottom:28px;">
-      <div style="display:inline-flex; align-items:center; gap:8px; padding:9px 18px; background:rgba(201,144,26,.1); border:1px solid rgba(201,144,26,.35); border-radius:2px;">
-        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#C9901A" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
-        <span style="font-size:14px; color:#3A3A3A;">All prices include 10% VAT</span>
-      </div>
-    </div>
-
-    <div class="reveal mb-12" style="transition-delay:.06s;">
+    <div class="reveal mb-12">
       <p class="label" style="margin-bottom:12px;">Pricing</p>
       <h2 class="section-title">Services</h2>
     </div>
