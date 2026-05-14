@@ -9,7 +9,7 @@
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Sansation:ital,wght@0,300;0,400;0,700;1,300&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;600&family=Inter:wght@400;500&display=swap" rel="stylesheet">
 
   <!-- Tailwind -->
   <script src="https://cdn.tailwindcss.com"></script>
@@ -27,7 +27,8 @@
             'ink-soft':   '#3A3A3A',
           },
           fontFamily: {
-            display: ['Sansation', 'sans-serif'],
+            display: ['Josefin Sans', 'sans-serif'],
+            /* font-weight 600 is max bold for Josefin Sans */
             body:    ['Inter', 'sans-serif'],
           },
         }
@@ -49,14 +50,14 @@
 
     /* ── TYPOGRAPHY HELPERS ───────────────────────────── */
     .label {
-      font-family: 'Sansation', sans-serif;
+      font-family: 'Josefin Sans', sans-serif;
       font-size: 11px;
       letter-spacing: 0.14em;
       text-transform: uppercase;
       color: #D4A8A0;
     }
     .section-title {
-      font-family: 'Sansation', sans-serif;
+      font-family: 'Josefin Sans', sans-serif;
       font-weight: 700;
       font-size: clamp(2rem, 5vw, 3.25rem);
       text-transform: uppercase;
@@ -77,7 +78,7 @@
       padding: 14px 30px;
       background: #1A1A1A;
       color: #F5EDE5;
-      font-family: 'Sansation', sans-serif;
+      font-family: 'Josefin Sans', sans-serif;
       font-size: 12px;
       letter-spacing: 0.12em;
       text-transform: uppercase;
@@ -96,7 +97,7 @@
       padding: 13px 29px;
       background: transparent;
       color: #1A1A1A;
-      font-family: 'Sansation', sans-serif;
+      font-family: 'Josefin Sans', sans-serif;
       font-size: 12px;
       letter-spacing: 0.12em;
       text-transform: uppercase;
@@ -114,7 +115,7 @@
       transition: background 0.3s ease-out, box-shadow 0.3s ease-out;
     }
     .nav-link {
-      font-family: 'Sansation', sans-serif;
+      font-family: 'Josefin Sans', sans-serif;
       font-size: 11px;
       letter-spacing: 0.12em;
       text-transform: uppercase;
@@ -159,7 +160,7 @@
     /* ── SERVICE TABS ─────────────────────────────────── */
     .tab-btn {
       padding: 9px 18px;
-      font-family: 'Sansation', sans-serif;
+      font-family: 'Josefin Sans', sans-serif;
       font-size: 11px;
       letter-spacing: 0.1em;
       text-transform: uppercase;
@@ -180,7 +181,7 @@
     .tab-panel.active { display: block; animation: fadeIn .3s ease-out; }
 
     .svc-group {
-      font-family: 'Sansation', sans-serif;
+      font-family: 'Josefin Sans', sans-serif;
       font-size: 10px;
       letter-spacing: 0.14em;
       text-transform: uppercase;
@@ -198,7 +199,7 @@
     }
     .svc-row:last-child { border-bottom: none; }
     .svc-name  { font-size: 15px; color: #1A1A1A; line-height: 1.5; }
-    .svc-price { font-family: 'Sansation', sans-serif; font-size: 13px; color: #3A3A3A; white-space: nowrap; font-variant-numeric: tabular-nums; }
+    .svc-price { font-family: 'Josefin Sans', sans-serif; font-size: 13px; color: #3A3A3A; white-space: nowrap; font-variant-numeric: tabular-nums; }
 
     /* ── GALLERY ──────────────────────────────────────── */
     .gallery-item {
@@ -265,7 +266,7 @@
     }
     .scrubber-chip {
       position: absolute;
-      font-family: 'Sansation', sans-serif;
+      font-family: 'Josefin Sans', sans-serif;
       font-size: 10px;
       letter-spacing: 0.12em;
       text-transform: uppercase;
@@ -280,13 +281,13 @@
     /* ── SCROLL REVEAL ────────────────────────────────── */
     .reveal {
       opacity: 0;
-      transform: translateY(48px);
-      transition: opacity 0.75s cubic-bezier(.16,1,.3,1), transform 0.75s cubic-bezier(.16,1,.3,1);
+      transform: translateY(24px);
+      transition: opacity 0.7s cubic-bezier(.16,1,.3,1), transform 0.7s cubic-bezier(.16,1,.3,1);
     }
-    .reveal.from-left  { transform: translateX(-56px); }
-    .reveal.from-right { transform: translateX(56px); }
-    .reveal.from-scale { transform: scale(.92) translateY(24px); }
-    .reveal.from-big   { transform: translateY(72px) scale(.96); }
+    .reveal.from-left  { transform: translateX(-32px); }
+    .reveal.from-right { transform: translateX(32px); }
+    .reveal.from-scale { transform: scale(.97) translateY(14px); }
+    .reveal.from-big   { transform: translateY(36px) scale(.98); }
     .reveal.visible {
       opacity: 1;
       transform: none;
@@ -294,15 +295,15 @@
     /* stagger children */
     .stagger > * {
       opacity: 0;
-      transform: translateY(40px);
-      transition: opacity 0.65s cubic-bezier(.16,1,.3,1), transform 0.65s cubic-bezier(.16,1,.3,1);
+      transform: translateY(20px);
+      transition: opacity 0.6s cubic-bezier(.16,1,.3,1), transform 0.6s cubic-bezier(.16,1,.3,1);
     }
     .stagger.visible > *:nth-child(1)  { transition-delay: 0ms; }
-    .stagger.visible > *:nth-child(2)  { transition-delay: 80ms; }
-    .stagger.visible > *:nth-child(3)  { transition-delay: 160ms; }
-    .stagger.visible > *:nth-child(4)  { transition-delay: 240ms; }
-    .stagger.visible > *:nth-child(5)  { transition-delay: 320ms; }
-    .stagger.visible > *:nth-child(6)  { transition-delay: 400ms; }
+    .stagger.visible > *:nth-child(2)  { transition-delay: 70ms; }
+    .stagger.visible > *:nth-child(3)  { transition-delay: 140ms; }
+    .stagger.visible > *:nth-child(4)  { transition-delay: 210ms; }
+    .stagger.visible > *:nth-child(5)  { transition-delay: 280ms; }
+    .stagger.visible > *:nth-child(6)  { transition-delay: 350ms; }
     .stagger.visible > * {
       opacity: 1;
       transform: none;
@@ -310,8 +311,8 @@
     /* gallery stagger — tighter + pop scale */
     .gallery-stagger > * {
       opacity: 0;
-      transform: scale(.88) translateY(32px);
-      transition: opacity 0.6s cubic-bezier(.16,1,.3,1), transform 0.6s cubic-bezier(.16,1,.3,1);
+      transform: scale(.96) translateY(16px);
+      transition: opacity 0.55s cubic-bezier(.16,1,.3,1), transform 0.55s cubic-bezier(.16,1,.3,1);
     }
     .gallery-stagger.visible > *:nth-child(1) { transition-delay: 0ms; }
     .gallery-stagger.visible > *:nth-child(2) { transition-delay: 90ms; }
@@ -323,7 +324,7 @@
 
     /* hero text animation */
     @keyframes heroSlideUp {
-      from { opacity: 0; transform: translateY(40px); }
+      from { opacity: 0; transform: translateY(22px); }
       to   { opacity: 1; transform: translateY(0); }
     }
     .hero-line { opacity: 0; animation: heroSlideUp 0.9s cubic-bezier(.16,1,.3,1) forwards; }
@@ -381,20 +382,32 @@
 
 <!-- ══════════════════ NAV ══════════════════ -->
 <nav id="main-nav" class="fixed top-0 left-0 right-0 z-50" style="background: rgba(229,213,200,.96); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(212,168,160,.28);">
-  <div class="max-w-7xl mx-auto px-6 md:px-10 h-16 flex items-center justify-between">
+  <div class="max-w-7xl mx-auto px-6 md:px-10 h-16 items-center" style="display:grid; grid-template-columns:1fr auto 1fr;">
 
-    <a href="#" aria-label="Mélo Beauty Lounge home" style="display:flex; align-items:center; text-decoration:none;">
-      <img
-        src="brand_assets/brand_assets/IMG_3910.jpg"
-        alt="Mélo Beauty Lounge"
-        style="height:40px; width:auto; object-fit:contain; object-position: center 28%;"
-      >
-    </a>
-
+    <!-- Left: nav links (desktop) / empty on mobile -->
     <div class="hidden md:flex items-center gap-8">
       <a href="#services" class="nav-link">Services</a>
       <a href="#gallery"  class="nav-link">Gallery</a>
       <a href="#contact"  class="nav-link">Contact</a>
+    </div>
+    <!-- Mobile: hamburger sits in left cell -->
+    <button id="menu-toggle" class="md:hidden p-2 flex flex-col gap-[5px] justify-self-start" aria-label="Open menu" aria-expanded="false">
+      <span class="block w-6 h-px bg-ink" id="ham-top"    style="transition: transform 0.22s ease-out, opacity 0.22s ease-out;"></span>
+      <span class="block w-4 h-px bg-ink" id="ham-mid"    style="transition: transform 0.22s ease-out;"></span>
+      <span class="block w-6 h-px bg-ink" id="ham-bottom" style="transition: transform 0.22s ease-out, opacity 0.22s ease-out;"></span>
+    </button>
+
+    <!-- Center: logo -->
+    <a href="#" aria-label="Mélo Beauty Lounge home" style="display:flex; align-items:center; justify-content:center; text-decoration:none;">
+      <img
+        src="brand_assets/brand_assets/IMG_3910.jpg"
+        alt="Mélo Beauty Lounge"
+        style="height:40px; width:auto; object-fit:contain;"
+      >
+    </a>
+
+    <!-- Right: Book Now (desktop) / empty on mobile -->
+    <div class="hidden md:flex items-center justify-end">
       <a
         href="https://wa.me/97317772209?text=Hi%2C%20I'd%20like%20to%20book%20an%20appointment"
         class="btn-primary"
@@ -402,12 +415,7 @@
         style="font-size:11px; padding: 11px 22px;"
       >Book Now</a>
     </div>
-
-    <button id="menu-toggle" class="md:hidden p-2 flex flex-col gap-[5px]" aria-label="Open menu" aria-expanded="false">
-      <span class="block w-6 h-px bg-ink" id="ham-top"    style="transition: transform 0.22s ease-out, opacity 0.22s ease-out;"></span>
-      <span class="block w-4 h-px bg-ink" id="ham-mid"    style="transition: transform 0.22s ease-out;"></span>
-      <span class="block w-6 h-px bg-ink" id="ham-bottom" style="transition: transform 0.22s ease-out, opacity 0.22s ease-out;"></span>
-    </button>
+    <div class="md:hidden"></div>
   </div>
 
   <div id="mobile-menu" class="md:hidden hidden" style="background:#E5D5C8; border-top: 1px solid rgba(212,168,160,.28);">
@@ -434,7 +442,7 @@
   <div class="flex-1 flex flex-col justify-center px-8 md:px-16 lg:px-24 py-16 md:py-0 order-2 md:order-1" style="background:#E5D5C8;">
     <div style="max-width: 400px;">
       <p class="label hero-line hero-line-1" style="margin-bottom:20px;">Barbar, Bahrain</p>
-      <h1 class="hero-line hero-line-2" style="font-family:'Sansation',sans-serif; font-weight:700; font-size:clamp(2.6rem,6vw,4.2rem); text-transform:uppercase; letter-spacing:0.07em; line-height:1.0; color:#1A1A1A; margin-bottom:24px;">
+      <h1 class="hero-line hero-line-2" style="font-family:'Josefin Sans',sans-serif; font-weight:700; font-size:clamp(2.6rem,6vw,4.2rem); text-transform:uppercase; letter-spacing:0.07em; line-height:1.0; color:#1A1A1A; margin-bottom:24px;">
         Be Bold.<br>Be Bright.<br>Be You.
       </h1>
       <p class="hero-line hero-line-3" style="font-size:16px; color:#3A3A3A; line-height:1.75; max-width:36ch; margin-bottom:36px;">
@@ -461,7 +469,7 @@
       id="hero-img"
       src="brand_assets/brand_assets/IMG_3918.jpg"
       alt="Colourful nail art and café drink at Mélo Beauty Lounge"
-      style="width:100%; height:100%; object-fit:cover; object-position:center top; transform: scale(1.08);"
+      style="width:100%; height:100%; object-fit:cover; object-position:center 55%; transform: scale(1.08);"
     >
   </div>
 </section>
@@ -786,7 +794,7 @@
         <div style="width:44px; height:44px; border:1px solid rgba(212,168,160,.55); border-radius:50%; display:flex; align-items:center; justify-content:center; margin-bottom:24px;">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#D4A8A0" stroke-width="1.5" aria-hidden="true"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
         </div>
-        <h3 style="font-family:'Sansation',sans-serif; font-weight:700; font-size:18px; text-transform:uppercase; letter-spacing:0.07em; line-height:1.2; color:#1A1A1A; margin-bottom:14px;">Hair &amp; Nails<br>Together</h3>
+        <h3 style="font-family:'Josefin Sans',sans-serif; font-weight:700; font-size:18px; text-transform:uppercase; letter-spacing:0.07em; line-height:1.2; color:#1A1A1A; margin-bottom:14px;">Hair &amp; Nails<br>Together</h3>
         <p style="font-size:15px; color:#3A3A3A; line-height:1.75; max-width:28ch;">One place for your full look. No splitting your day between two appointments.</p>
       </div>
 
@@ -795,7 +803,7 @@
         <div style="width:44px; height:44px; border:1px solid rgba(212,168,160,.55); border-radius:50%; display:flex; align-items:center; justify-content:center; margin-bottom:24px;">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#D4A8A0" stroke-width="1.5" aria-hidden="true"><path d="M18 8h1a4 4 0 010 8h-1"/><path d="M2 8h16v9a4 4 0 01-4 4H6a4 4 0 01-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/></svg>
         </div>
-        <h3 style="font-family:'Sansation',sans-serif; font-weight:700; font-size:18px; text-transform:uppercase; letter-spacing:0.07em; line-height:1.2; color:#1A1A1A; margin-bottom:14px;">In-House<br>Café</h3>
+        <h3 style="font-family:'Josefin Sans',sans-serif; font-weight:700; font-size:18px; text-transform:uppercase; letter-spacing:0.07em; line-height:1.2; color:#1A1A1A; margin-bottom:14px;">In-House<br>Café</h3>
         <p style="font-size:15px; color:#3A3A3A; line-height:1.75; max-width:28ch;">Your name on the cup. One of the only salons in Bahrain with its own café inside.</p>
       </div>
 
@@ -804,7 +812,7 @@
         <div style="width:44px; height:44px; border:1px solid rgba(212,168,160,.55); border-radius:50%; display:flex; align-items:center; justify-content:center; margin-bottom:24px;">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#D4A8A0" stroke-width="1.5" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
         </div>
-        <h3 style="font-family:'Sansation',sans-serif; font-weight:700; font-size:18px; text-transform:uppercase; letter-spacing:0.07em; line-height:1.2; color:#1A1A1A; margin-bottom:14px;">10AM – 9PM<br>Every Day</h3>
+        <h3 style="font-family:'Josefin Sans',sans-serif; font-weight:700; font-size:18px; text-transform:uppercase; letter-spacing:0.07em; line-height:1.2; color:#1A1A1A; margin-bottom:14px;">10AM – 9PM<br>Every Day</h3>
         <p style="font-size:15px; color:#3A3A3A; line-height:1.75; max-width:28ch;">Seven days a week. Morning slots, evening slots. Book whenever it suits you.</p>
       </div>
     </div>
@@ -853,17 +861,17 @@
 
           <div class="reveal" style="transition-delay:.05s;">
             <p class="label" style="margin-bottom:8px;">WhatsApp &amp; Phone</p>
-            <a href="https://wa.me/97317772209" style="font-family:'Sansation',sans-serif; font-size:clamp(1.4rem,3vw,2rem); color:#1A1A1A; text-decoration:none; transition: color 0.15s ease-out;">+973 1777 2209</a>
+            <a href="https://wa.me/97317772209" style="font-family:'Josefin Sans',sans-serif; font-size:clamp(1.4rem,3vw,2rem); color:#1A1A1A; text-decoration:none; transition: color 0.15s ease-out;">+973 1777 2209</a>
           </div>
 
           <div class="reveal" style="transition-delay:.12s;">
             <p class="label" style="margin-bottom:8px;">Instagram</p>
-            <a href="https://www.instagram.com/melobeauty.bh" target="_blank" rel="noopener noreferrer" style="font-family:'Sansation',sans-serif; font-size:1.2rem; color:#1A1A1A; text-decoration:none; transition: color 0.15s ease-out;">@melobeauty.bh</a>
+            <a href="https://www.instagram.com/melobeauty.bh" target="_blank" rel="noopener noreferrer" style="font-family:'Josefin Sans',sans-serif; font-size:1.2rem; color:#1A1A1A; text-decoration:none; transition: color 0.15s ease-out;">@melobeauty.bh</a>
           </div>
 
           <div class="reveal" style="transition-delay:.2s;">
             <p class="label" style="margin-bottom:8px;">Hours</p>
-            <p style="font-family:'Sansation',sans-serif; font-size:1.2rem; color:#1A1A1A;">10AM – 9PM</p>
+            <p style="font-family:'Josefin Sans',sans-serif; font-size:1.2rem; color:#1A1A1A;">10AM – 9PM</p>
             <p style="font-size:14px; color:#3A3A3A; margin-top:4px;">Seven days a week</p>
           </div>
 
@@ -915,25 +923,25 @@
             style="width:100%; height:100%; object-fit:cover; object-position:center 25%;"
           >
         </div>
-        <p style="font-family:'Sansation',sans-serif; font-size:11px; letter-spacing:0.12em; text-transform:uppercase; color:rgba(239,227,216,.45); margin-top:8px;">Barbar, Bahrain</p>
-        <p style="font-family:'Sansation',sans-serif; font-size:10px; letter-spacing:0.1em; text-transform:uppercase; color:rgba(239,227,216,.28); margin-top:6px; font-style:italic;">Be Bold. Be Bright. Be You.</p>
+        <p style="font-family:'Josefin Sans',sans-serif; font-size:11px; letter-spacing:0.12em; text-transform:uppercase; color:rgba(239,227,216,.45); margin-top:8px;">Barbar, Bahrain</p>
+        <p style="font-family:'Josefin Sans',sans-serif; font-size:10px; letter-spacing:0.1em; text-transform:uppercase; color:rgba(239,227,216,.28); margin-top:6px; font-style:italic;">Be Bold. Be Bright. Be You.</p>
       </div>
 
       <!-- Navigate -->
       <div>
-        <p style="font-family:'Sansation',sans-serif; font-size:10px; letter-spacing:0.14em; text-transform:uppercase; color:rgba(239,227,216,.4); margin-bottom:20px;">Navigate</p>
+        <p style="font-family:'Josefin Sans',sans-serif; font-size:10px; letter-spacing:0.14em; text-transform:uppercase; color:rgba(239,227,216,.4); margin-bottom:20px;">Navigate</p>
         <nav style="display:flex; flex-direction:column; gap:12px;">
-          <a href="#services" style="font-family:'Sansation',sans-serif; font-size:12px; letter-spacing:0.1em; text-transform:uppercase; color:rgba(239,227,216,.65); text-decoration:none; transition:color 0.15s ease-out;">Services</a>
-          <a href="#gallery"  style="font-family:'Sansation',sans-serif; font-size:12px; letter-spacing:0.1em; text-transform:uppercase; color:rgba(239,227,216,.65); text-decoration:none; transition:color 0.15s ease-out;">Gallery</a>
-          <a href="#contact"  style="font-family:'Sansation',sans-serif; font-size:12px; letter-spacing:0.1em; text-transform:uppercase; color:rgba(239,227,216,.65); text-decoration:none; transition:color 0.15s ease-out;">Contact</a>
-          <a href="https://www.instagram.com/melobeauty.bh" target="_blank" rel="noopener noreferrer" style="font-family:'Sansation',sans-serif; font-size:12px; letter-spacing:0.1em; text-transform:uppercase; color:rgba(239,227,216,.65); text-decoration:none; transition:color 0.15s ease-out;">Instagram</a>
+          <a href="#services" style="font-family:'Josefin Sans',sans-serif; font-size:12px; letter-spacing:0.1em; text-transform:uppercase; color:rgba(239,227,216,.65); text-decoration:none; transition:color 0.15s ease-out;">Services</a>
+          <a href="#gallery"  style="font-family:'Josefin Sans',sans-serif; font-size:12px; letter-spacing:0.1em; text-transform:uppercase; color:rgba(239,227,216,.65); text-decoration:none; transition:color 0.15s ease-out;">Gallery</a>
+          <a href="#contact"  style="font-family:'Josefin Sans',sans-serif; font-size:12px; letter-spacing:0.1em; text-transform:uppercase; color:rgba(239,227,216,.65); text-decoration:none; transition:color 0.15s ease-out;">Contact</a>
+          <a href="https://www.instagram.com/melobeauty.bh" target="_blank" rel="noopener noreferrer" style="font-family:'Josefin Sans',sans-serif; font-size:12px; letter-spacing:0.1em; text-transform:uppercase; color:rgba(239,227,216,.65); text-decoration:none; transition:color 0.15s ease-out;">Instagram</a>
         </nav>
       </div>
 
       <!-- Contact info -->
       <div>
-        <p style="font-family:'Sansation',sans-serif; font-size:10px; letter-spacing:0.14em; text-transform:uppercase; color:rgba(239,227,216,.4); margin-bottom:20px;">Get in Touch</p>
-        <a href="https://wa.me/97317772209" style="font-family:'Sansation',sans-serif; font-size:14px; color:rgba(239,227,216,.65); text-decoration:none; display:block; margin-bottom:8px;">+973 1777 2209</a>
+        <p style="font-family:'Josefin Sans',sans-serif; font-size:10px; letter-spacing:0.14em; text-transform:uppercase; color:rgba(239,227,216,.4); margin-bottom:20px;">Get in Touch</p>
+        <a href="https://wa.me/97317772209" style="font-family:'Josefin Sans',sans-serif; font-size:14px; color:rgba(239,227,216,.65); text-decoration:none; display:block; margin-bottom:8px;">+973 1777 2209</a>
         <p style="font-size:13px; color:rgba(239,227,216,.4);">10AM – 9PM · Every day</p>
         <p style="font-size:11px; color:rgba(239,227,216,.28); line-height:1.65; margin-top:24px;">All prices are inclusive of 10% VAT.</p>
       </div>
