@@ -1,0 +1,1109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mélo Beauty Lounge — Hair, Nails & Café · Barbar, Bahrain</title>
+  <meta name="description" content="Full-service hair and nail salon in Barbar, Bahrain. Hair colour, treatments, manicures, pedicures, and an in-house café. Book via WhatsApp.">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Sansation:ital,wght@0,300;0,400;0,700;1,300&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+
+  <!-- Tailwind -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            nude:      '#E5D5C8',
+            'nude-soft':  '#EFE3D8',
+            'nude-cream': '#F5EDE5',
+            'melo-pink':  '#EBC4BD',
+            'pink-deep':  '#D4A8A0',
+            ink:       '#1A1A1A',
+            'ink-soft':   '#3A3A3A',
+          },
+          fontFamily: {
+            display: ['Sansation', 'sans-serif'],
+            body:    ['Inter', 'sans-serif'],
+          },
+        }
+      }
+    }
+  </script>
+
+  <style>
+    /* ── RESET & BASE ─────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #E5D5C8;
+      color: #1A1A1A;
+      overflow-x: hidden;
+    }
+    img { display: block; max-width: 100%; }
+
+    /* ── TYPOGRAPHY HELPERS ───────────────────────────── */
+    .label {
+      font-family: 'Sansation', sans-serif;
+      font-size: 11px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: #D4A8A0;
+    }
+    .section-title {
+      font-family: 'Sansation', sans-serif;
+      font-weight: 700;
+      font-size: clamp(2rem, 5vw, 3.25rem);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      line-height: 1.05;
+      color: #1A1A1A;
+    }
+
+    /* ── SHADOWS ──────────────────────────────────────── */
+    .shadow-warm    { box-shadow: 0 1px 3px rgba(180,140,120,.1),  0 4px 14px rgba(180,140,120,.09); }
+    .shadow-warm-lg { box-shadow: 0 2px 6px rgba(180,140,120,.09), 0 14px 32px rgba(180,140,120,.14); }
+
+    /* ── BUTTONS ──────────────────────────────────────── */
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      padding: 14px 30px;
+      background: #1A1A1A;
+      color: #F5EDE5;
+      font-family: 'Sansation', sans-serif;
+      font-size: 12px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      text-decoration: none;
+      border-radius: 2px;
+      transition: background 0.18s ease-out, transform 0.18s cubic-bezier(.16,1,.3,1);
+    }
+    .btn-primary:hover  { background: #2d2d2d; transform: translateY(-2px); }
+    .btn-primary:active { transform: translateY(0) scale(.97); }
+    .btn-primary:focus-visible { outline: 2px solid #1A1A1A; outline-offset: 3px; }
+
+    .btn-outline {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      padding: 13px 29px;
+      background: transparent;
+      color: #1A1A1A;
+      font-family: 'Sansation', sans-serif;
+      font-size: 12px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      text-decoration: none;
+      border: 1px solid #1A1A1A;
+      border-radius: 2px;
+      transition: background 0.18s ease-out, color 0.18s ease-out, transform 0.18s cubic-bezier(.16,1,.3,1);
+    }
+    .btn-outline:hover  { background: #1A1A1A; color: #F5EDE5; transform: translateY(-2px); }
+    .btn-outline:active { transform: translateY(0) scale(.97); }
+    .btn-outline:focus-visible { outline: 2px solid #1A1A1A; outline-offset: 3px; }
+
+    /* ── NAV ──────────────────────────────────────────── */
+    #main-nav {
+      transition: background 0.3s ease-out, box-shadow 0.3s ease-out;
+    }
+    .nav-link {
+      font-family: 'Sansation', sans-serif;
+      font-size: 11px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #3A3A3A;
+      text-decoration: none;
+      position: relative;
+      transition: color 0.15s ease-out;
+    }
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      bottom: -2px;
+      left: 0;
+      width: 0;
+      height: 1px;
+      background: #1A1A1A;
+      transition: width 0.22s ease-out;
+    }
+    .nav-link:hover { color: #1A1A1A; }
+    .nav-link:hover::after { width: 100%; }
+
+    /* ── WHATSAPP FAB ─────────────────────────────────── */
+    .wa-fab {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      z-index: 1000;
+      width: 58px;
+      height: 58px;
+      background: #25D366;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 18px rgba(37,211,102,.38);
+      transition: transform 0.25s cubic-bezier(.16,1,.3,1), box-shadow 0.25s cubic-bezier(.16,1,.3,1);
+    }
+    .wa-fab:hover  { transform: translateY(-4px) scale(1.04); box-shadow: 0 10px 28px rgba(37,211,102,.45); }
+    .wa-fab:active { transform: translateY(-1px) scale(.97); }
+    .wa-fab:focus-visible { outline: 2px solid #25D366; outline-offset: 3px; }
+
+    /* ── SERVICE TABS ─────────────────────────────────── */
+    .tab-btn {
+      padding: 9px 18px;
+      font-family: 'Sansation', sans-serif;
+      font-size: 11px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #3A3A3A;
+      background: transparent;
+      border: 1px solid #D4A8A0;
+      border-radius: 2px;
+      cursor: pointer;
+      transition: background 0.16s ease-out, color 0.16s ease-out, border-color 0.16s ease-out, transform 0.14s ease-out;
+      white-space: nowrap;
+    }
+    .tab-btn:hover  { background: #EFE3D8; border-color: #EBC4BD; transform: translateY(-1px); }
+    .tab-btn:active { transform: translateY(0); }
+    .tab-btn.active { background: #1A1A1A; color: #F5EDE5; border-color: #1A1A1A; }
+    .tab-btn:focus-visible { outline: 2px solid #D4A8A0; outline-offset: 2px; }
+
+    .tab-panel { display: none; }
+    .tab-panel.active { display: block; animation: fadeIn .3s ease-out; }
+
+    .svc-group {
+      font-family: 'Sansation', sans-serif;
+      font-size: 10px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: #D4A8A0;
+      margin-top: 24px;
+      margin-bottom: 10px;
+    }
+    .svc-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 16px;
+      padding: 9px 0;
+      border-bottom: 1px solid rgba(212,168,160,.22);
+    }
+    .svc-row:last-child { border-bottom: none; }
+    .svc-name  { font-size: 15px; color: #1A1A1A; line-height: 1.5; }
+    .svc-price { font-family: 'Sansation', sans-serif; font-size: 13px; color: #3A3A3A; white-space: nowrap; font-variant-numeric: tabular-nums; }
+
+    /* ── GALLERY ──────────────────────────────────────── */
+    .gallery-item {
+      overflow: hidden;
+      border-radius: 2px;
+    }
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s cubic-bezier(.16,1,.3,1);
+    }
+    .gallery-item:hover img { transform: scale(1.06); }
+
+    /* ── BEFORE/AFTER SCRUBBER ────────────────────────── */
+    .scrubber-wrap {
+      position: relative;
+      overflow: hidden;
+      cursor: ew-resize;
+      user-select: none;
+      -webkit-user-select: none;
+      border-radius: 2px;
+      touch-action: pan-y;
+    }
+    .scrubber-after {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+    }
+    .scrubber-before {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      will-change: clip-path;
+    }
+    .scrubber-handle-line {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      width: 2px;
+      background: rgba(255,255,255,.9);
+      transform: translateX(-50%);
+      pointer-events: none;
+    }
+    .scrubber-handle-circle {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 48px;
+      height: 48px;
+      background: #fff;
+      border-radius: 50%;
+      box-shadow: 0 3px 14px rgba(26,26,26,.22);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 3px;
+    }
+    .scrubber-chip {
+      position: absolute;
+      font-family: 'Sansation', sans-serif;
+      font-size: 10px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 4px 10px;
+      background: rgba(245,237,229,.92);
+      color: #1A1A1A;
+      border-radius: 1px;
+      pointer-events: none;
+      top: 16px;
+    }
+
+    /* ── SCROLL REVEAL ────────────────────────────────── */
+    .reveal {
+      opacity: 0;
+      transform: translateY(48px);
+      transition: opacity 0.75s cubic-bezier(.16,1,.3,1), transform 0.75s cubic-bezier(.16,1,.3,1);
+    }
+    .reveal.from-left  { transform: translateX(-56px); }
+    .reveal.from-right { transform: translateX(56px); }
+    .reveal.from-scale { transform: scale(.92) translateY(24px); }
+    .reveal.from-big   { transform: translateY(72px) scale(.96); }
+    .reveal.visible {
+      opacity: 1;
+      transform: none;
+    }
+    /* stagger children */
+    .stagger > * {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: opacity 0.65s cubic-bezier(.16,1,.3,1), transform 0.65s cubic-bezier(.16,1,.3,1);
+    }
+    .stagger.visible > *:nth-child(1)  { transition-delay: 0ms; }
+    .stagger.visible > *:nth-child(2)  { transition-delay: 80ms; }
+    .stagger.visible > *:nth-child(3)  { transition-delay: 160ms; }
+    .stagger.visible > *:nth-child(4)  { transition-delay: 240ms; }
+    .stagger.visible > *:nth-child(5)  { transition-delay: 320ms; }
+    .stagger.visible > *:nth-child(6)  { transition-delay: 400ms; }
+    .stagger.visible > * {
+      opacity: 1;
+      transform: none;
+    }
+    /* gallery stagger — tighter + pop scale */
+    .gallery-stagger > * {
+      opacity: 0;
+      transform: scale(.88) translateY(32px);
+      transition: opacity 0.6s cubic-bezier(.16,1,.3,1), transform 0.6s cubic-bezier(.16,1,.3,1);
+    }
+    .gallery-stagger.visible > *:nth-child(1) { transition-delay: 0ms; }
+    .gallery-stagger.visible > *:nth-child(2) { transition-delay: 90ms; }
+    .gallery-stagger.visible > *:nth-child(3) { transition-delay: 180ms; }
+    .gallery-stagger.visible > *:nth-child(4) { transition-delay: 270ms; }
+    .gallery-stagger.visible > *:nth-child(5) { transition-delay: 360ms; }
+    .gallery-stagger.visible > *:nth-child(6) { transition-delay: 450ms; }
+    .gallery-stagger.visible > * { opacity: 1; transform: none; }
+
+    /* hero text animation */
+    @keyframes heroSlideUp {
+      from { opacity: 0; transform: translateY(40px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    .hero-line { opacity: 0; animation: heroSlideUp 0.9s cubic-bezier(.16,1,.3,1) forwards; }
+    .hero-line-1 { animation-delay: 0.1s; }
+    .hero-line-2 { animation-delay: 0.22s; }
+    .hero-line-3 { animation-delay: 0.38s; }
+    .hero-line-4 { animation-delay: 0.52s; }
+    .hero-line-5 { animation-delay: 0.64s; }
+
+    /* hero image parallax */
+    #hero-img { will-change: transform; }
+
+    /* fade plain */
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to   { opacity: 1; }
+    }
+
+    /* pillar hover */
+    .pillar { transition: background 0.22s ease-out, transform 0.22s cubic-bezier(.16,1,.3,1); }
+    .pillar:hover { background: rgba(235,196,189,.12); transform: translateY(-4px); }
+
+    /* scrubber hint pulse on handle */
+    @keyframes hintPulse {
+      0%,100% { transform: translate(-50%,-50%) scale(1); }
+      50%      { transform: translate(-50%,-50%) scale(1.15); }
+    }
+    .scrubber-hint { animation: hintPulse 1s ease-in-out 2; }
+
+    /* reduced motion */
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-delay: 0ms !important;
+        transition-duration: 0.01ms !important;
+      }
+      .reveal, .stagger > *, .gallery-stagger > * { opacity: 1 !important; transform: none !important; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ══════════════════ WHATSAPP FAB ══════════════════ -->
+<a
+  href="https://wa.me/97317772209?text=Hi%2C%20I'd%20like%20to%20book%20an%20appointment"
+  class="wa-fab"
+  target="_blank"
+  rel="noopener noreferrer"
+  aria-label="Book via WhatsApp"
+>
+  <svg width="28" height="28" viewBox="0 0 24 24" fill="white" aria-hidden="true">
+    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+  </svg>
+</a>
+
+<!-- ══════════════════ NAV ══════════════════ -->
+<nav id="main-nav" class="fixed top-0 left-0 right-0 z-50" style="background: rgba(229,213,200,.96); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(212,168,160,.28);">
+  <div class="max-w-7xl mx-auto px-6 md:px-10 h-16 flex items-center justify-between">
+
+    <a href="#" aria-label="Mélo Beauty Lounge home" style="display:flex; align-items:center; text-decoration:none;">
+      <img
+        src="brand_assets/brand_assets/IMG_3910.jpg"
+        alt="Mélo Beauty Lounge"
+        style="height:40px; width:auto; object-fit:contain; object-position: center 28%;"
+      >
+    </a>
+
+    <div class="hidden md:flex items-center gap-8">
+      <a href="#services" class="nav-link">Services</a>
+      <a href="#gallery"  class="nav-link">Gallery</a>
+      <a href="#contact"  class="nav-link">Contact</a>
+      <a
+        href="https://wa.me/97317772209?text=Hi%2C%20I'd%20like%20to%20book%20an%20appointment"
+        class="btn-primary"
+        target="_blank" rel="noopener noreferrer"
+        style="font-size:11px; padding: 11px 22px;"
+      >Book Now</a>
+    </div>
+
+    <button id="menu-toggle" class="md:hidden p-2 flex flex-col gap-[5px]" aria-label="Open menu" aria-expanded="false">
+      <span class="block w-6 h-px bg-ink" id="ham-top"    style="transition: transform 0.22s ease-out, opacity 0.22s ease-out;"></span>
+      <span class="block w-4 h-px bg-ink" id="ham-mid"    style="transition: transform 0.22s ease-out;"></span>
+      <span class="block w-6 h-px bg-ink" id="ham-bottom" style="transition: transform 0.22s ease-out, opacity 0.22s ease-out;"></span>
+    </button>
+  </div>
+
+  <div id="mobile-menu" class="md:hidden hidden" style="background:#E5D5C8; border-top: 1px solid rgba(212,168,160,.28);">
+    <div class="px-6 py-7 flex flex-col gap-5">
+      <a href="#services" class="nav-link text-sm" onclick="closeMobileMenu()">Services</a>
+      <a href="#gallery"  class="nav-link text-sm" onclick="closeMobileMenu()">Gallery</a>
+      <a href="#contact"  class="nav-link text-sm" onclick="closeMobileMenu()">Contact</a>
+      <a
+        href="https://wa.me/97317772209?text=Hi%2C%20I'd%20like%20to%20book%20an%20appointment"
+        class="btn-primary justify-center mt-2"
+        target="_blank" rel="noopener noreferrer"
+      >
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        Book via WhatsApp
+      </a>
+    </div>
+  </div>
+</nav>
+
+<!-- ══════════════════ HERO ══════════════════ -->
+<section id="hero" style="min-height: 100dvh; display:flex; flex-direction:column; padding-top:64px;" class="md:flex-row">
+
+  <!-- Text — left -->
+  <div class="flex-1 flex flex-col justify-center px-8 md:px-16 lg:px-24 py-16 md:py-0 order-2 md:order-1" style="background:#E5D5C8;">
+    <div style="max-width: 400px;">
+      <p class="label hero-line hero-line-1" style="margin-bottom:20px;">Barbar, Bahrain</p>
+      <h1 class="hero-line hero-line-2" style="font-family:'Sansation',sans-serif; font-weight:700; font-size:clamp(2.6rem,6vw,4.2rem); text-transform:uppercase; letter-spacing:0.07em; line-height:1.0; color:#1A1A1A; margin-bottom:24px;">
+        Be Bold.<br>Be Bright.<br>Be You.
+      </h1>
+      <p class="hero-line hero-line-3" style="font-size:16px; color:#3A3A3A; line-height:1.75; max-width:36ch; margin-bottom:36px;">
+        Hair, nails, and your own cup. All under one roof. Mélo is where you show up as yourself and leave looking exactly like it.
+      </p>
+      <div class="hero-line hero-line-4" style="display:flex; flex-wrap:wrap; gap:12px; margin-bottom:40px;">
+        <a
+          href="https://wa.me/97317772209?text=Hi%2C%20I'd%20like%20to%20book%20an%20appointment"
+          class="btn-primary"
+          target="_blank" rel="noopener noreferrer"
+        >
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          Book an Appointment
+        </a>
+        <a href="#services" class="btn-outline">View Services</a>
+      </div>
+      <p class="hero-line hero-line-5 label">10AM – 9PM · Seven days a week</p>
+    </div>
+  </div>
+
+  <!-- Image — right -->
+  <div class="order-1 md:order-2 flex-1 overflow-hidden" style="min-height:320px; max-height:100dvh;">
+    <img
+      id="hero-img"
+      src="brand_assets/brand_assets/IMG_3918.jpg"
+      alt="Colourful nail art and café drink at Mélo Beauty Lounge"
+      style="width:100%; height:100%; object-fit:cover; object-position:center top; transform: scale(1.08);"
+    >
+  </div>
+</section>
+
+<!-- ══════════════════ SERVICES ══════════════════ -->
+<section id="services" style="background:#EFE3D8; padding:100px 0;">
+  <div class="max-w-7xl mx-auto px-6 md:px-10">
+
+    <div class="reveal mb-12">
+      <p class="label" style="margin-bottom:12px;">Pricing</p>
+      <h2 class="section-title">Services</h2>
+    </div>
+
+    <div class="reveal" style="transition-delay:.08s; display:inline-flex; align-items:center; gap:8px; padding:8px 16px; background:rgba(235,196,189,.22); border:1px solid rgba(212,168,160,.4); border-radius:2px; margin-bottom:36px;">
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#D4A8A0" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+      <span style="font-size:14px; color:#3A3A3A;">All prices include 10% VAT</span>
+    </div>
+
+    <!-- Tabs -->
+    <div class="reveal stagger" style="transition-delay:.16s; display:flex; flex-wrap:wrap; gap:8px; margin-bottom:36px;" role="tablist">
+      <button class="tab-btn active" onclick="switchTab('hair')"        role="tab" aria-selected="true"  aria-controls="tab-hair">Hair</button>
+      <button class="tab-btn"        onclick="switchTab('treatments')"  role="tab" aria-selected="false" aria-controls="tab-treatments">Treatments</button>
+      <button class="tab-btn"        onclick="switchTab('color')"       role="tab" aria-selected="false" aria-controls="tab-color">Colour</button>
+      <button class="tab-btn"        onclick="switchTab('nails-hands')" role="tab" aria-selected="false" aria-controls="tab-nails-hands">Nails — Hands</button>
+      <button class="tab-btn"        onclick="switchTab('nails-feet')"  role="tab" aria-selected="false" aria-controls="tab-nails-feet">Nails — Feet</button>
+    </div>
+
+    <div id="svc-layout" style="display:grid; grid-template-columns:1fr; gap:40px;">
+    <style>@media(min-width:768px){ #svc-layout { grid-template-columns: 1fr 1fr; } }</style>
+      <!-- Panel column -->
+      <div class="reveal" style="transition-delay:.22s; max-width:520px;">
+
+        <!-- HAIR -->
+        <div id="tab-hair" class="tab-panel active" role="tabpanel">
+          <p class="svc-group">Wash</p>
+          <div class="svc-row"><span class="svc-name">Hair wash</span><span class="svc-price">BD 2.2</span></div>
+          <div class="svc-row"><span class="svc-name">Hair wash + Airdry</span><span class="svc-price">BD 4.4</span></div>
+          <p class="svc-group">Cut</p>
+          <div class="svc-row"><span class="svc-name">Hair trim</span><span class="svc-price">BD 5.5</span></div>
+          <div class="svc-row"><span class="svc-name">Haircut</span><span class="svc-price">BD 11</span></div>
+          <p class="svc-group">Blow Dry</p>
+          <div class="svc-row"><span class="svc-name">Short</span><span class="svc-price">BD 6.6</span></div>
+          <div class="svc-row"><span class="svc-name">Medium</span><span class="svc-price">BD 8.8</span></div>
+          <div class="svc-row"><span class="svc-name">Long</span><span class="svc-price">BD 11</span></div>
+          <div class="svc-row"><span class="svc-name">Blowdry wavy</span><span class="svc-price">BD 13.2</span></div>
+          <p class="svc-group">Wavy</p>
+          <div class="svc-row"><span class="svc-name">Short</span><span class="svc-price">BD 11</span></div>
+          <div class="svc-row"><span class="svc-name">Medium</span><span class="svc-price">BD 13.2</span></div>
+          <div class="svc-row"><span class="svc-name">Long</span><span class="svc-price">BD 16.5</span></div>
+          <div class="svc-row"><span class="svc-name">Retro</span><span class="svc-price">BD 33</span></div>
+          <p class="svc-group">Styling</p>
+          <div class="svc-row"><span class="svc-name">Hairstyle</span><span class="svc-price">from BD 27.5</span></div>
+        </div>
+
+        <!-- TREATMENTS -->
+        <div id="tab-treatments" class="tab-panel" role="tabpanel">
+          <div class="svc-row"><span class="svc-name">Olaplex</span><span class="svc-price">BD 22</span></div>
+          <div class="svc-row"><span class="svc-name">Tea tree</span><span class="svc-price">BD 11</span></div>
+          <div class="svc-row"><span class="svc-name">L'Oréal Power Mix</span><span class="svc-price">BD 8.8</span></div>
+          <p class="svc-group">Nashi Filler Therapy</p>
+          <div class="svc-row"><span class="svc-name">Short</span><span class="svc-price">BD 19.8</span></div>
+          <div class="svc-row"><span class="svc-name">Medium</span><span class="svc-price">BD 23.1</span></div>
+          <div class="svc-row"><span class="svc-name">Long</span><span class="svc-price">BD 27.5</span></div>
+          <p class="svc-group">Express Filler</p>
+          <div class="svc-row"><span class="svc-name">Short</span><span class="svc-price">BD 16.5</span></div>
+          <div class="svc-row"><span class="svc-name">Medium</span><span class="svc-price">BD 22</span></div>
+          <div class="svc-row"><span class="svc-name">Long</span><span class="svc-price">BD 27.5</span></div>
+          <div class="svc-row"><span class="svc-name">Extra long</span><span class="svc-price">BD 31.9</span></div>
+        </div>
+
+        <!-- COLOUR -->
+        <div id="tab-color" class="tab-panel" role="tabpanel">
+          <div class="svc-row"><span class="svc-name">Hair colour — Full</span><span class="svc-price">BD 33</span></div>
+          <div class="svc-row"><span class="svc-name">Hair colour — Roots</span><span class="svc-price">BD 16.5</span></div>
+          <div class="svc-row"><span class="svc-name">Hair colour — Half roots</span><span class="svc-price">BD 11</span></div>
+          <div class="svc-row"><span class="svc-name">Balayage</span><span class="svc-price">BD 38.5</span></div>
+          <div class="svc-row"><span class="svc-name">Highlights</span><span class="svc-price">BD 33</span></div>
+          <div class="svc-row"><span class="svc-name">Lowlights</span><span class="svc-price">BD 33</span></div>
+          <div class="svc-row"><span class="svc-name">Toner</span><span class="svc-price">BD 16.5</span></div>
+        </div>
+
+        <!-- NAILS HANDS -->
+        <div id="tab-nails-hands" class="tab-panel" role="tabpanel">
+          <p class="svc-group">Manicure</p>
+          <div class="svc-row"><span class="svc-name">Manicure</span><span class="svc-price">BD 6.6</span></div>
+          <div class="svc-row"><span class="svc-name">+ Normal polish</span><span class="svc-price">BD 7.7</span></div>
+          <div class="svc-row"><span class="svc-name">+ Gel polish</span><span class="svc-price">BD 11</span></div>
+          <div class="svc-row"><span class="svc-name">+ French polish</span><span class="svc-price">BD 9.9</span></div>
+          <div class="svc-row"><span class="svc-name">+ French gel polish</span><span class="svc-price">BD 13.2</span></div>
+          <div class="svc-row"><span class="svc-name">+ Chrome mirror gel</span><span class="svc-price">BD 13.2</span></div>
+          <p class="svc-group">Polish only</p>
+          <div class="svc-row"><span class="svc-name">Nail colour</span><span class="svc-price">BD 2.2</span></div>
+          <div class="svc-row"><span class="svc-name">French colour</span><span class="svc-price">BD 4.4</span></div>
+          <div class="svc-row"><span class="svc-name">Colour removal</span><span class="svc-price">BD 1.1</span></div>
+          <div class="svc-row"><span class="svc-name">Gel colour</span><span class="svc-price">BD 7.7</span></div>
+          <div class="svc-row"><span class="svc-name">French gel</span><span class="svc-price">BD 9.9</span></div>
+          <div class="svc-row"><span class="svc-name">Gel removal</span><span class="svc-price">BD 4.4</span></div>
+          <p class="svc-group">Other</p>
+          <div class="svc-row"><span class="svc-name">Cut &amp; file</span><span class="svc-price">BD 3.3</span></div>
+          <div class="svc-row"><span class="svc-name">Cut &amp; file + colour</span><span class="svc-price">BD 5.5</span></div>
+          <div class="svc-row"><span class="svc-name">False nails + mani + colour</span><span class="svc-price">BD 16.5</span></div>
+          <div class="svc-row"><span class="svc-name">False nails + mani + french</span><span class="svc-price">BD 18.7</span></div>
+          <div class="svc-row"><span class="svc-name">False nails + colour</span><span class="svc-price">BD 12.1</span></div>
+          <div class="svc-row"><span class="svc-name">False nails per nail</span><span class="svc-price">BD 1.7</span></div>
+          <div class="svc-row"><span class="svc-name">False nails removal</span><span class="svc-price">BD 4.4</span></div>
+          <p class="svc-group">Extensions</p>
+          <div class="svc-row"><span class="svc-name">Soft gel set</span><span class="svc-price">BD 27.5</span></div>
+          <div class="svc-row"><span class="svc-name">Soft gel per nail</span><span class="svc-price">BD 2.2</span></div>
+          <div class="svc-row"><span class="svc-name">Builder per nail</span><span class="svc-price">BD 2.2</span></div>
+          <div class="svc-row"><span class="svc-name">Acrylic / poly gel — full set</span><span class="svc-price">BD 30.8</span></div>
+          <div class="svc-row"><span class="svc-name">Acrylic / poly gel — refill</span><span class="svc-price">BD 19.8</span></div>
+          <div class="svc-row"><span class="svc-name">Acrylic / poly gel — per nail</span><span class="svc-price">BD 2.75</span></div>
+          <div class="svc-row"><span class="svc-name">Acrylic / poly gel — removal</span><span class="svc-price">BD 8.8</span></div>
+          <div class="svc-row"><span class="svc-name">Poly gel ombré</span><span class="svc-price">BD 35.2</span></div>
+          <div class="svc-row"><span class="svc-name">Nail art per nail</span><span class="svc-price">BD 1.1</span></div>
+        </div>
+
+        <!-- NAILS FEET -->
+        <div id="tab-nails-feet" class="tab-panel" role="tabpanel">
+          <p class="svc-group">Pedicure</p>
+          <div class="svc-row"><span class="svc-name">Pedicure</span><span class="svc-price">BD 7.7</span></div>
+          <div class="svc-row"><span class="svc-name">+ Normal polish</span><span class="svc-price">BD 8.8</span></div>
+          <div class="svc-row"><span class="svc-name">+ Gel polish</span><span class="svc-price">BD 12.1</span></div>
+          <div class="svc-row"><span class="svc-name">+ French polish</span><span class="svc-price">BD 11</span></div>
+          <div class="svc-row"><span class="svc-name">+ French gel polish</span><span class="svc-price">BD 14.3</span></div>
+          <div class="svc-row"><span class="svc-name">+ Chrome mirror gel</span><span class="svc-price">BD 14.3</span></div>
+          <p class="svc-group">Polish only</p>
+          <div class="svc-row"><span class="svc-name">Nail colour</span><span class="svc-price">BD 2.2</span></div>
+          <div class="svc-row"><span class="svc-name">French colour</span><span class="svc-price">BD 4.4</span></div>
+          <div class="svc-row"><span class="svc-name">Colour removal</span><span class="svc-price">BD 1.1</span></div>
+          <div class="svc-row"><span class="svc-name">Gel colour</span><span class="svc-price">BD 6.6</span></div>
+          <div class="svc-row"><span class="svc-name">French gel</span><span class="svc-price">BD 8.8</span></div>
+          <div class="svc-row"><span class="svc-name">Gel removal</span><span class="svc-price">BD 4.4</span></div>
+          <p class="svc-group">Other</p>
+          <div class="svc-row"><span class="svc-name">Cut &amp; file</span><span class="svc-price">BD 3.3</span></div>
+          <div class="svc-row"><span class="svc-name">Cut &amp; file + colour</span><span class="svc-price">BD 5.5</span></div>
+        </div>
+      </div>
+
+      <!-- Sidebar image + CTA — desktop only -->
+      <div class="reveal from-right hidden md:flex flex-col justify-start items-start gap-8 pl-10" style="transition-delay:.3s; border-left:1px solid rgba(212,168,160,.28);">
+        <div style="border-radius:2px; overflow:hidden; width:100%; max-width:320px;" class="shadow-warm-lg">
+          <img
+            src="brand_assets/brand_assets/IMG_3913.jpg"
+            alt="Mélo signature takeaway cup"
+            style="width:100%; aspect-ratio:4/5; object-fit:cover;"
+          >
+        </div>
+        <a
+          href="https://wa.me/97317772209?text=Hi%2C%20I'd%20like%20to%20book%20an%20appointment"
+          class="btn-primary"
+          target="_blank" rel="noopener noreferrer"
+        >
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          Book via WhatsApp
+        </a>
+      </div>
+    </div>
+
+    <!-- Mobile CTA -->
+    <div class="md:hidden reveal" style="transition-delay:.28s; margin-top:36px;">
+      <a
+        href="https://wa.me/97317772209?text=Hi%2C%20I'd%20like%20to%20book%20an%20appointment"
+        class="btn-primary w-full justify-center"
+        target="_blank" rel="noopener noreferrer"
+      >Book via WhatsApp</a>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════ THE CAFÉ ══════════════════ -->
+<section id="cafe" style="background:#E5D5C8; padding:100px 0; overflow:hidden;">
+  <div class="max-w-7xl mx-auto px-6 md:px-10">
+    <div id="cafe-layout" style="display:grid; grid-template-columns:1fr; gap:48px; align-items:center;">
+    <style>@media(min-width:768px){ #cafe-layout { grid-template-columns: 1fr 1fr; } }</style>
+      <!-- Image -->
+      <div class="reveal from-left shadow-warm-lg" style="border-radius:2px; overflow:hidden;">
+        <img
+          src="brand_assets/brand_assets/IMG_3921.jpg"
+          alt="Mélo Beauty Lounge interior — nail polish display and café bar"
+          style="width:100%; aspect-ratio:4/5; object-fit:cover;"
+        >
+      </div>
+      <!-- Text -->
+      <div>
+        <p class="label reveal" style="margin-bottom:14px; transition-delay:.1s;">Something different</p>
+        <h2 class="section-title reveal" style="margin-bottom:24px; transition-delay:.18s;">The Café</h2>
+        <p class="reveal" style="font-size:16px; color:#3A3A3A; line-height:1.8; max-width:40ch; margin-bottom:18px; transition-delay:.26s;">
+          Most salons make you wait. At Mélo, you sit down with a drink with your name on the cup. The café is part of the experience, not an afterthought.
+        </p>
+        <p class="reveal" style="font-size:16px; color:#3A3A3A; line-height:1.8; max-width:40ch; margin-bottom:36px; transition-delay:.34s;">
+          It's one of the only salons in Bahrain where hair, nails, and your own coffee break happen in the same visit.
+        </p>
+        <div class="reveal" style="transition-delay:.42s;">
+          <a
+            href="https://wa.me/97317772209?text=Hi%2C%20I'd%20like%20to%20book%20an%20appointment"
+            class="btn-outline"
+            target="_blank" rel="noopener noreferrer"
+          >Reserve your spot</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════ GALLERY ══════════════════ -->
+<section id="gallery" style="background:#EFE3D8; padding:100px 0;">
+  <div class="max-w-7xl mx-auto px-6 md:px-10">
+
+    <div class="mb-14">
+      <p class="label reveal" style="margin-bottom:12px;">The Work</p>
+      <h2 class="section-title reveal" style="transition-delay:.08s;">Gallery</h2>
+    </div>
+
+    <!-- Before / After scrubber -->
+    <div class="reveal from-scale" style="transition-delay:.15s; margin-bottom:16px;">
+      <p class="label" style="margin-bottom:14px;">Hair — Before &amp; After</p>
+      <p style="font-size:13px; color:#3A3A3A; margin-bottom:20px;">Drag the handle to compare.</p>
+    </div>
+
+    <div class="reveal from-big" style="transition-delay:.24s; display:flex; justify-content:flex-start;">
+      <div
+        id="scrubber"
+        class="scrubber-wrap shadow-warm-lg"
+        style="width:100%; max-width:420px; aspect-ratio:9/16; max-height:80vh;"
+      >
+        <!-- AFTER base -->
+        <img
+          class="scrubber-after"
+          src="brand_assets/brand_assets/IMG_3923.jpg"
+          alt="After: styled blow-out hair"
+          draggable="false"
+          style="position:absolute; inset:0;"
+        >
+        <!-- BEFORE clipped -->
+        <img
+          id="sc-before"
+          class="scrubber-before"
+          src="brand_assets/brand_assets/IMG_3922.jpg"
+          alt="Before: natural curly hair"
+          draggable="false"
+          style="clip-path: inset(0 50% 0 0);"
+        >
+        <!-- Handle line -->
+        <div id="sc-handle" class="scrubber-handle-line" style="left:50%;">
+          <div class="scrubber-handle-circle" id="sc-circle">
+            <!-- Left arrow -->
+            <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#1A1A1A" stroke-width="2.5" aria-hidden="true"><polyline points="15 18 9 12 15 6"/></svg>
+            <!-- Right arrow -->
+            <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#1A1A1A" stroke-width="2.5" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg>
+          </div>
+        </div>
+        <!-- Label chips -->
+        <span class="scrubber-chip" style="left:14px;">Before</span>
+        <span class="scrubber-chip" style="right:14px;">After</span>
+      </div>
+    </div>
+
+    <!-- Gallery grid -->
+    <div class="mt-16">
+      <p class="label reveal" style="margin-bottom:20px; transition-delay:.05s;">Nail Work</p>
+      <div
+        class="gallery-stagger"
+        style="display:grid; grid-template-columns:repeat(2,1fr); gap:10px;"
+      >
+        <style>
+          @media(min-width:768px) {
+            .gallery-stagger { grid-template-columns: repeat(3, 1fr) !important; }
+          }
+        </style>
+        <div class="gallery-item shadow-warm" style="aspect-ratio:1;">
+          <img src="brand_assets/brand_assets/IMG_3912.jpg" alt="Dark wine red and forest green gel nails" loading="lazy">
+        </div>
+        <div class="gallery-item shadow-warm" style="aspect-ratio:1;">
+          <img src="brand_assets/brand_assets/IMG_3914.jpg" alt="Lavender nails with daisy art" loading="lazy">
+        </div>
+        <div class="gallery-item shadow-warm" style="aspect-ratio:1;">
+          <img src="brand_assets/brand_assets/IMG_3915.jpg" alt="Yellow French tip nail art, four hands" loading="lazy">
+        </div>
+        <div class="gallery-item shadow-warm" style="aspect-ratio:1;">
+          <img src="brand_assets/brand_assets/IMG_3916.jpg" alt="Ocean-theme French tip nails with starfish" loading="lazy">
+        </div>
+        <div class="gallery-item shadow-warm" style="aspect-ratio:1;">
+          <img src="brand_assets/brand_assets/IMG_3917.jpg" alt="Pink chrome aurora nails" loading="lazy">
+        </div>
+        <div class="gallery-item shadow-warm" style="aspect-ratio:1;">
+          <img src="brand_assets/brand_assets/IMG_3919.jpg" alt="French tips with moon and evil eye art" loading="lazy">
+        </div>
+      </div>
+    </div>
+
+    <!-- Instagram CTA -->
+    <div class="reveal" style="text-align:center; margin-top:48px; transition-delay:.1s;">
+      <a
+        href="https://www.instagram.com/melobeauty.bh"
+        target="_blank" rel="noopener noreferrer"
+        class="btn-outline"
+      >
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+        More on Instagram @melobeauty.bh
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════ WHY MÉLO ══════════════════ -->
+<section id="why" style="background:#E5D5C8; padding:100px 0;">
+  <div class="max-w-7xl mx-auto px-6 md:px-10">
+
+    <div class="mb-16">
+      <p class="label reveal" style="margin-bottom:12px;">Why us</p>
+      <h2 class="section-title reveal" style="transition-delay:.08s;">Why Mélo</h2>
+    </div>
+
+    <div style="display:grid; grid-template-columns:1fr; gap:1px; background:rgba(212,168,160,.28);" id="pillars">
+      <style>
+        @media(min-width:768px) { #pillars { grid-template-columns: repeat(3,1fr); } }
+      </style>
+
+      <!-- Pillar 1 -->
+      <div class="pillar reveal" style="background:#E5D5C8; padding:48px 36px; transition-delay:.05s;">
+        <div style="width:44px; height:44px; border:1px solid rgba(212,168,160,.55); border-radius:50%; display:flex; align-items:center; justify-content:center; margin-bottom:24px;">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#D4A8A0" stroke-width="1.5" aria-hidden="true"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
+        </div>
+        <h3 style="font-family:'Sansation',sans-serif; font-weight:700; font-size:18px; text-transform:uppercase; letter-spacing:0.07em; line-height:1.2; color:#1A1A1A; margin-bottom:14px;">Hair &amp; Nails<br>Together</h3>
+        <p style="font-size:15px; color:#3A3A3A; line-height:1.75; max-width:28ch;">One place for your full look. No splitting your day between two appointments.</p>
+      </div>
+
+      <!-- Pillar 2 -->
+      <div class="pillar reveal" style="background:#E5D5C8; padding:48px 36px; transition-delay:.14s;">
+        <div style="width:44px; height:44px; border:1px solid rgba(212,168,160,.55); border-radius:50%; display:flex; align-items:center; justify-content:center; margin-bottom:24px;">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#D4A8A0" stroke-width="1.5" aria-hidden="true"><path d="M18 8h1a4 4 0 010 8h-1"/><path d="M2 8h16v9a4 4 0 01-4 4H6a4 4 0 01-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/></svg>
+        </div>
+        <h3 style="font-family:'Sansation',sans-serif; font-weight:700; font-size:18px; text-transform:uppercase; letter-spacing:0.07em; line-height:1.2; color:#1A1A1A; margin-bottom:14px;">In-House<br>Café</h3>
+        <p style="font-size:15px; color:#3A3A3A; line-height:1.75; max-width:28ch;">Your name on the cup. One of the only salons in Bahrain with its own café inside.</p>
+      </div>
+
+      <!-- Pillar 3 -->
+      <div class="pillar reveal" style="background:#E5D5C8; padding:48px 36px; transition-delay:.24s;">
+        <div style="width:44px; height:44px; border:1px solid rgba(212,168,160,.55); border-radius:50%; display:flex; align-items:center; justify-content:center; margin-bottom:24px;">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#D4A8A0" stroke-width="1.5" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        </div>
+        <h3 style="font-family:'Sansation',sans-serif; font-weight:700; font-size:18px; text-transform:uppercase; letter-spacing:0.07em; line-height:1.2; color:#1A1A1A; margin-bottom:14px;">10AM – 9PM<br>Every Day</h3>
+        <p style="font-size:15px; color:#3A3A3A; line-height:1.75; max-width:28ch;">Seven days a week. Morning slots, evening slots. Book whenever it suits you.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════ FINAL CTA ══════════════════ -->
+<section style="background:#EFE3D8; padding:120px 0; overflow:hidden;">
+  <div style="max-width:680px; margin:0 auto; padding:0 24px; text-align:center;">
+    <p class="label reveal" style="margin-bottom:16px;">Ready?</p>
+    <h2 class="section-title reveal" style="transition-delay:.1s; margin-bottom:28px; font-size:clamp(2.4rem,6vw,4rem);">
+      Your next<br>appointment<br>starts here.
+    </h2>
+    <p class="reveal" style="font-size:16px; color:#3A3A3A; line-height:1.8; max-width:38ch; margin:0 auto 44px; transition-delay:.2s;">
+      Message us on WhatsApp and we'll sort out the time. No forms, no waiting. Just a quick message.
+    </p>
+    <div class="reveal" style="transition-delay:.3s; display:flex; justify-content:center;">
+      <a
+        href="https://wa.me/97317772209?text=Hi%2C%20I'd%20like%20to%20book%20an%20appointment"
+        class="btn-primary"
+        target="_blank" rel="noopener noreferrer"
+        style="font-size:12px;"
+      >
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        Book on WhatsApp · +973 1777 2209
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════ CONTACT ══════════════════ -->
+<section id="contact" style="background:#E5D5C8; padding:100px 0;">
+  <div class="max-w-7xl mx-auto px-6 md:px-10">
+
+    <div class="mb-14">
+      <p class="label reveal" style="margin-bottom:12px;">Find us</p>
+      <h2 class="section-title reveal" style="transition-delay:.08s;">Contact</h2>
+    </div>
+
+    <div style="display:grid; grid-template-columns:1fr; gap:48px;" id="contact-grid">
+      <style>@media(min-width:768px){ #contact-grid { grid-template-columns: 1fr 1fr; } }</style>
+
+      <!-- Info -->
+      <div>
+        <div style="display:flex; flex-direction:column; gap:36px;">
+
+          <div class="reveal" style="transition-delay:.05s;">
+            <p class="label" style="margin-bottom:8px;">WhatsApp &amp; Phone</p>
+            <a href="https://wa.me/97317772209" style="font-family:'Sansation',sans-serif; font-size:clamp(1.4rem,3vw,2rem); color:#1A1A1A; text-decoration:none; transition: color 0.15s ease-out;">+973 1777 2209</a>
+          </div>
+
+          <div class="reveal" style="transition-delay:.12s;">
+            <p class="label" style="margin-bottom:8px;">Instagram</p>
+            <a href="https://www.instagram.com/melobeauty.bh" target="_blank" rel="noopener noreferrer" style="font-family:'Sansation',sans-serif; font-size:1.2rem; color:#1A1A1A; text-decoration:none; transition: color 0.15s ease-out;">@melobeauty.bh</a>
+          </div>
+
+          <div class="reveal" style="transition-delay:.2s;">
+            <p class="label" style="margin-bottom:8px;">Hours</p>
+            <p style="font-family:'Sansation',sans-serif; font-size:1.2rem; color:#1A1A1A;">10AM – 9PM</p>
+            <p style="font-size:14px; color:#3A3A3A; margin-top:4px;">Seven days a week</p>
+          </div>
+
+          <div class="reveal" style="transition-delay:.28s;">
+            <p class="label" style="margin-bottom:8px;">Location</p>
+            <p style="font-size:15px; color:#3A3A3A; line-height:1.7;">2025 Road, Barbar, Bahrain<br>AIN 520 · Near Bagh Restaurant &amp; McDonald's on Budaiya Highway</p>
+          </div>
+        </div>
+
+        <div class="reveal" style="margin-top:40px; transition-delay:.36s;">
+          <a
+            href="https://wa.me/97317772209?text=Hi%2C%20I'd%20like%20to%20book%20an%20appointment"
+            class="btn-primary"
+            target="_blank" rel="noopener noreferrer"
+          >Book via WhatsApp</a>
+        </div>
+      </div>
+
+      <!-- Map -->
+      <div class="reveal from-right shadow-warm-lg" style="transition-delay:.18s; border-radius:2px; overflow:hidden; height:420px;">
+        <iframe
+          src="https://maps.google.com/maps?q=Melo+Beauty+Lounge+Barbar+Bahrain&output=embed"
+          width="100%"
+          height="100%"
+          style="border:none;"
+          allowfullscreen=""
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          title="Mélo Beauty Lounge location map"
+        ></iframe>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════ FOOTER ══════════════════ -->
+<footer style="background:#1A1A1A; padding:72px 0 40px;">
+  <div class="max-w-7xl mx-auto px-6 md:px-10">
+
+    <div style="display:grid; grid-template-columns:1fr; gap:48px; margin-bottom:64px;" id="footer-grid">
+      <style>@media(min-width:768px){ #footer-grid { grid-template-columns: 1fr 1fr 1fr; } }</style>
+
+      <!-- Logo -->
+      <div>
+        <div style="width:80px; height:80px; border-radius:50%; overflow:hidden; background:#E5D5C8; margin-bottom:16px;">
+          <img
+            src="brand_assets/brand_assets/IMG_3910.jpg"
+            alt="Mélo Beauty Lounge"
+            style="width:100%; height:100%; object-fit:cover; object-position:center 25%;"
+          >
+        </div>
+        <p style="font-family:'Sansation',sans-serif; font-size:11px; letter-spacing:0.12em; text-transform:uppercase; color:rgba(239,227,216,.45); margin-top:8px;">Barbar, Bahrain</p>
+        <p style="font-family:'Sansation',sans-serif; font-size:10px; letter-spacing:0.1em; text-transform:uppercase; color:rgba(239,227,216,.28); margin-top:6px; font-style:italic;">Be Bold. Be Bright. Be You.</p>
+      </div>
+
+      <!-- Navigate -->
+      <div>
+        <p style="font-family:'Sansation',sans-serif; font-size:10px; letter-spacing:0.14em; text-transform:uppercase; color:rgba(239,227,216,.4); margin-bottom:20px;">Navigate</p>
+        <nav style="display:flex; flex-direction:column; gap:12px;">
+          <a href="#services" style="font-family:'Sansation',sans-serif; font-size:12px; letter-spacing:0.1em; text-transform:uppercase; color:rgba(239,227,216,.65); text-decoration:none; transition:color 0.15s ease-out;">Services</a>
+          <a href="#gallery"  style="font-family:'Sansation',sans-serif; font-size:12px; letter-spacing:0.1em; text-transform:uppercase; color:rgba(239,227,216,.65); text-decoration:none; transition:color 0.15s ease-out;">Gallery</a>
+          <a href="#contact"  style="font-family:'Sansation',sans-serif; font-size:12px; letter-spacing:0.1em; text-transform:uppercase; color:rgba(239,227,216,.65); text-decoration:none; transition:color 0.15s ease-out;">Contact</a>
+          <a href="https://www.instagram.com/melobeauty.bh" target="_blank" rel="noopener noreferrer" style="font-family:'Sansation',sans-serif; font-size:12px; letter-spacing:0.1em; text-transform:uppercase; color:rgba(239,227,216,.65); text-decoration:none; transition:color 0.15s ease-out;">Instagram</a>
+        </nav>
+      </div>
+
+      <!-- Contact info -->
+      <div>
+        <p style="font-family:'Sansation',sans-serif; font-size:10px; letter-spacing:0.14em; text-transform:uppercase; color:rgba(239,227,216,.4); margin-bottom:20px;">Get in Touch</p>
+        <a href="https://wa.me/97317772209" style="font-family:'Sansation',sans-serif; font-size:14px; color:rgba(239,227,216,.65); text-decoration:none; display:block; margin-bottom:8px;">+973 1777 2209</a>
+        <p style="font-size:13px; color:rgba(239,227,216,.4);">10AM – 9PM · Every day</p>
+        <p style="font-size:11px; color:rgba(239,227,216,.28); line-height:1.65; margin-top:24px;">All prices are inclusive of 10% VAT.</p>
+      </div>
+    </div>
+
+    <div style="border-top:1px solid rgba(239,227,216,.1); padding-top:24px; display:flex; flex-direction:column; gap:8px;" class="md:flex-row md:justify-between md:items-center">
+      <p style="font-size:12px; color:rgba(239,227,216,.28);">© 2026 Mélo Beauty Lounge. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
+
+<!-- ══════════════════ SCRIPTS ══════════════════ -->
+<script>
+/* ── NAV scroll ────────────────────────────────── */
+const nav = document.getElementById('main-nav');
+window.addEventListener('scroll', function() {
+  if (window.scrollY > 24) {
+    nav.style.boxShadow = '0 2px 20px rgba(180,140,120,.13)';
+  } else {
+    nav.style.boxShadow = 'none';
+  }
+}, { passive: true });
+
+/* ── Mobile menu ───────────────────────────────── */
+const menuToggle = document.getElementById('menu-toggle');
+const mobileMenu = document.getElementById('mobile-menu');
+const hamTop    = document.getElementById('ham-top');
+const hamMid    = document.getElementById('ham-mid');
+const hamBottom = document.getElementById('ham-bottom');
+let menuOpen = false;
+
+menuToggle.addEventListener('click', function() {
+  menuOpen = !menuOpen;
+  menuToggle.setAttribute('aria-expanded', String(menuOpen));
+  if (menuOpen) {
+    mobileMenu.classList.remove('hidden');
+    hamTop.style.transform    = 'translateY(6px) rotate(45deg)';
+    hamMid.style.opacity      = '0';
+    hamBottom.style.transform = 'translateY(-6px) rotate(-45deg)';
+  } else {
+    mobileMenu.classList.add('hidden');
+    hamTop.style.transform    = '';
+    hamMid.style.opacity      = '';
+    hamBottom.style.transform = '';
+  }
+});
+
+function closeMobileMenu() {
+  menuOpen = false;
+  menuToggle.setAttribute('aria-expanded', 'false');
+  mobileMenu.classList.add('hidden');
+  hamTop.style.transform    = '';
+  hamMid.style.opacity      = '';
+  hamBottom.style.transform = '';
+}
+
+/* ── Service tabs ──────────────────────────────── */
+function switchTab(id) {
+  document.querySelectorAll('.tab-panel').forEach(function(p) { p.classList.remove('active'); });
+  document.querySelectorAll('.tab-btn').forEach(function(b) {
+    b.classList.remove('active');
+    b.setAttribute('aria-selected', 'false');
+  });
+  var panel = document.getElementById('tab-' + id);
+  if (panel) panel.classList.add('active');
+  document.querySelectorAll('.tab-btn').forEach(function(b) {
+    if (b.getAttribute('onclick') === "switchTab('" + id + "')") {
+      b.classList.add('active');
+      b.setAttribute('aria-selected', 'true');
+    }
+  });
+}
+
+/* ── Scroll reveal ─────────────────────────────── */
+(function() {
+  var opts = { threshold: 0.12, rootMargin: '0px 0px -40px 0px' };
+  var io = new IntersectionObserver(function(entries) {
+    entries.forEach(function(e) {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+        io.unobserve(e.target);
+      }
+    });
+  }, opts);
+
+  document.querySelectorAll('.reveal, .stagger, .gallery-stagger').forEach(function(el) {
+    io.observe(el);
+  });
+})();
+
+/* ── Hero parallax ─────────────────────────────── */
+(function() {
+  var img = document.getElementById('hero-img');
+  if (!img) return;
+  var ticking = false;
+  window.addEventListener('scroll', function() {
+    if (!ticking) {
+      requestAnimationFrame(function() {
+        var y = window.scrollY;
+        img.style.transform = 'scale(1.08) translateY(' + (y * 0.18) + 'px)';
+        ticking = false;
+      });
+      ticking = true;
+    }
+  }, { passive: true });
+})();
+
+/* ── Before/After Scrubber ─────────────────────── */
+(function() {
+  var container = document.getElementById('scrubber');
+  var beforeImg = document.getElementById('sc-before');
+  var handleLine = document.getElementById('sc-handle');
+  var circle = document.getElementById('sc-circle');
+  if (!container || !beforeImg || !handleLine) return;
+
+  var isDragging = false;
+  var pos = 50;
+
+  function setPos(clientX) {
+    var rect = container.getBoundingClientRect();
+    var p = ((clientX - rect.left) / rect.width) * 100;
+    p = Math.max(2, Math.min(98, p));
+    pos = p;
+    beforeImg.style.clipPath = 'inset(0 ' + (100 - p) + '% 0 0)';
+    handleLine.style.left = p + '%';
+  }
+
+  container.addEventListener('mousedown', function(e) {
+    isDragging = true;
+    setPos(e.clientX);
+    e.preventDefault();
+  });
+  window.addEventListener('mousemove', function(e) {
+    if (isDragging) setPos(e.clientX);
+  });
+  window.addEventListener('mouseup', function() { isDragging = false; });
+
+  container.addEventListener('touchstart', function(e) {
+    isDragging = true;
+    setPos(e.touches[0].clientX);
+    e.preventDefault();
+  }, { passive: false });
+  window.addEventListener('touchmove', function(e) {
+    if (isDragging) setPos(e.touches[0].clientX);
+  }, { passive: true });
+  window.addEventListener('touchend', function() { isDragging = false; });
+
+  /* Auto-hint: animate scrubber on first view */
+  var hinted = false;
+  var scrubIO = new IntersectionObserver(function(entries) {
+    entries.forEach(function(e) {
+      if (e.isIntersecting && !hinted) {
+        hinted = true;
+        scrubIO.disconnect();
+        circle.classList.add('scrubber-hint');
+        var steps = [50, 30, 70, 50];
+        var i = 0;
+        function step() {
+          if (i >= steps.length) return;
+          setPos(container.getBoundingClientRect().left + container.offsetWidth * steps[i] / 100);
+          i++;
+          if (i < steps.length) setTimeout(step, 420);
+        }
+        setTimeout(step, 600);
+      }
+    });
+  }, { threshold: 0.5 });
+  scrubIO.observe(container);
+})();
+</script>
+
+</body>
+</html>
