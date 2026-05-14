@@ -456,9 +456,12 @@
       to   { opacity: 1; }
     }
 
-    /* pillar hover */
-    .pillar { transition: background 0.22s ease-out, transform 0.22s cubic-bezier(.16,1,.3,1), box-shadow 0.22s ease-out; }
-    .pillar:hover { background: rgba(224,112,106,.08); transform: translateY(-5px); box-shadow: 0 8px 24px rgba(184,90,56,.12); }
+    /* pillar hover — before visible: use reveal timing so opacity+transform animate in smoothly */
+    .pillar { will-change: opacity, transform; }
+    .reveal.pillar { transition: opacity 0.7s cubic-bezier(.16,1,.3,1), transform 0.7s cubic-bezier(.16,1,.3,1), background 0.22s ease-out, box-shadow 0.22s ease-out; }
+    /* after reveal completes, switch to snappy hover timing */
+    .reveal.pillar.visible { transition: background 0.22s ease-out, transform 0.22s cubic-bezier(.16,1,.3,1), box-shadow 0.22s ease-out; }
+    .pillar.visible:hover { background: rgba(224,112,106,.08); transform: translateY(-5px); box-shadow: 0 8px 24px rgba(184,90,56,.12); }
 
 
     /* reduced motion */
@@ -787,58 +790,27 @@
       </div>
     </div>
 
-    <!-- Photo grid: 5 images — bento layout -->
-    <div id="cafe-photos" style="display:grid; grid-template-columns:1fr; gap:10px;">
-      <style>
-        @media(min-width:640px){
-          #cafe-photos { grid-template-columns: 1fr 1fr; }
-          #cafe-photo-feat { grid-column: 1 / 3; }
-        }
-        @media(min-width:1024px){
-          #cafe-photos { grid-template-columns: 1.35fr 1fr 1fr; grid-template-rows: 1fr 1fr; max-height: 420px; }
-          #cafe-photo-feat { grid-column: 1; grid-row: 1 / 3; }
-          #cafe-photos img { max-height: 200px; }
-          #cafe-photo-feat img { max-height: 420px; }
-        }
-      </style>
-
-      <!-- Feature: tall left -->
-      <div id="cafe-photo-feat" class="reveal" style="border-radius:4px; overflow:hidden; transition-delay:.08s;">
-        <img
-          src="brand_assets/brand_assets/IMG_3941.jpg"
-          alt="Two guests with Mélo branded drinks outside the salon"
-          style="width:100%; height:100%; min-height:280px; object-fit:cover; object-position:center 25%;"
-        >
+    <!-- Photo grid: gallery-style -->
+    <div
+      id="cafe-photos-grid"
+      class="gallery-stagger"
+      style="display:grid; grid-template-columns:repeat(2,1fr); gap:10px;"
+    >
+      <style>@media(min-width:768px){ #cafe-photos-grid { grid-template-columns:repeat(3,1fr) !important; } }</style>
+      <div class="gallery-item" style="aspect-ratio:1;">
+        <img src="brand_assets/brand_assets/IMG_3941.jpg" alt="Two guests with Mélo branded drinks outside the salon" loading="lazy" style="object-position:center 25%;">
       </div>
-
-      <!-- Right 2×2 grid -->
-      <div class="reveal" style="border-radius:4px; overflow:hidden; transition-delay:.14s;">
-        <img
-          src="brand_assets/brand_assets/IMG_3937.jpg"
-          alt="Branded drinks held outside Mélo Beauty Lounge"
-          style="width:100%; aspect-ratio:4/3; object-fit:cover; object-position:center 30%;"
-        >
+      <div class="gallery-item" style="aspect-ratio:1;">
+        <img src="brand_assets/brand_assets/IMG_3937.jpg" alt="Branded drinks held outside Mélo Beauty Lounge" loading="lazy" style="object-position:center 30%;">
       </div>
-      <div class="reveal" style="border-radius:4px; overflow:hidden; transition-delay:.18s;">
-        <img
-          src="brand_assets/brand_assets/IMG_3938.jpg"
-          alt="Mélo iced coffee on a marble tray"
-          style="width:100%; aspect-ratio:4/3; object-fit:cover; object-position:center;"
-        >
+      <div class="gallery-item" style="aspect-ratio:1;">
+        <img src="brand_assets/brand_assets/IMG_3940.jpg" alt="Close-up of Mélo branded iced coffee" loading="lazy" style="object-position:center 30%;">
       </div>
-      <div class="reveal" style="border-radius:4px; overflow:hidden; transition-delay:.22s;">
-        <img
-          src="brand_assets/brand_assets/IMG_3940.jpg"
-          alt="Close-up of Mélo branded iced coffee"
-          style="width:100%; aspect-ratio:4/3; object-fit:cover; object-position:center 30%;"
-        >
+      <div class="gallery-item" style="aspect-ratio:1;">
+        <img src="brand_assets/brand_assets/IMG_3938.jpg" alt="Mélo iced coffee on a marble tray" loading="lazy">
       </div>
-      <div class="reveal" style="border-radius:4px; overflow:hidden; transition-delay:.26s;">
-        <img
-          src="brand_assets/brand_assets/IMG_3939.jpg"
-          alt="Summer mojito in Mélo branded cup"
-          style="width:100%; aspect-ratio:4/3; object-fit:cover; object-position:center top;"
-        >
+      <div class="gallery-item" style="aspect-ratio:1;">
+        <img src="brand_assets/brand_assets/IMG_3939.jpg" alt="Summer mojito in Mélo branded cup" loading="lazy" style="object-position:center top;">
       </div>
     </div>
 
