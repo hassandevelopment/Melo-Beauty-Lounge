@@ -334,6 +334,13 @@
     .hero-line-4 { animation-delay: 0.52s; }
     .hero-line-5 { animation-delay: 0.64s; }
 
+    /* hero layout — row on desktop */
+    @media (min-width: 768px) {
+      #hero { flex-direction: row; }
+      #hero-text { order: 1; }
+      #hero-image { order: 2; }
+    }
+
     /* hero image parallax */
     #hero-img { will-change: transform; }
 
@@ -436,10 +443,10 @@
 </nav>
 
 <!-- ══════════════════ HERO ══════════════════ -->
-<section id="hero" style="min-height: 100dvh; display:flex; flex-direction:column; padding-top:64px;" class="md:flex-row">
+<section id="hero" style="min-height:100dvh; display:flex; flex-direction:column; padding-top:64px;">
 
   <!-- Text — left -->
-  <div class="flex-1 flex flex-col justify-center px-8 md:px-16 lg:px-24 py-16 md:py-0 order-2 md:order-1" style="background:#E5D5C8;">
+  <div id="hero-text" class="flex-1 flex flex-col justify-center px-8 md:px-16 lg:px-24 py-16 md:py-0" style="background:#E5D5C8; order:2;">
     <div style="max-width: 400px;">
       <p class="label hero-line hero-line-1" style="margin-bottom:20px;">Barbar, Bahrain</p>
       <h1 class="hero-line hero-line-2" style="font-family:'Josefin Sans',sans-serif; font-weight:700; font-size:clamp(2.6rem,6vw,4.2rem); text-transform:uppercase; letter-spacing:0.07em; line-height:1.0; color:#1A1A1A; margin-bottom:24px;">
@@ -464,7 +471,7 @@
   </div>
 
   <!-- Image — right -->
-  <div class="order-1 md:order-2 flex-1 overflow-hidden" style="min-height:320px; max-height:100dvh;">
+  <div id="hero-image" class="flex-1 overflow-hidden" style="min-height:320px; max-height:100dvh; order:1;">
     <img
       id="hero-img"
       src="brand_assets/brand_assets/IMG_3918.jpg"
