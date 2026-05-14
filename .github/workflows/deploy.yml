@@ -16,8 +16,8 @@ jobs:
       - name: Prepare static output
         run: |
           mkdir -p _site/brand_assets/brand_assets
-          cp Website/index.html _site/index.html
-          cp -r Website/brand_assets/brand_assets/. _site/brand_assets/brand_assets/
+          cp index.html _site/index.html
+          cp -r brand_assets/brand_assets/. _site/brand_assets/brand_assets/
 
       - name: Deploy to gh-pages
         uses: peaceiris/actions-gh-pages@v4
