@@ -136,6 +136,7 @@
     }
     .nav-link:hover { color: #1A1A1A; }
     .nav-link:hover::after { width: 100%; }
+    .nav-link:focus-visible { outline: 2px solid #D4A8A0; outline-offset: 3px; border-radius: 2px; }
 
     /* ── WHATSAPP FAB ─────────────────────────────────── */
     .wa-fab {
@@ -194,9 +195,12 @@
       justify-content: space-between;
       align-items: baseline;
       gap: 16px;
-      padding: 9px 0;
+      padding: 11px 6px;
       border-bottom: 1px solid rgba(212,168,160,.22);
+      border-radius: 2px;
+      transition: background 0.15s ease-out;
     }
+    .svc-row:hover { background: rgba(235,196,189,.12); }
     .svc-row:last-child { border-bottom: none; }
     .svc-name  { font-size: 15px; color: #1A1A1A; line-height: 1.5; }
     .svc-price { font-family: 'Josefin Sans', sans-serif; font-size: 13px; color: #3A3A3A; white-space: nowrap; font-variant-numeric: tabular-nums; }
@@ -205,6 +209,7 @@
     .gallery-item {
       overflow: hidden;
       border-radius: 2px;
+      transition: box-shadow 0.25s ease-out;
     }
     .gallery-item img {
       width: 100%;
@@ -212,7 +217,9 @@
       object-fit: cover;
       transition: transform 0.5s cubic-bezier(.16,1,.3,1);
     }
+    .gallery-item:hover { box-shadow: 0 6px 20px rgba(180,140,120,.18); }
     .gallery-item:hover img { transform: scale(1.06); }
+    .gallery-item:focus-visible { outline: 2px solid #D4A8A0; outline-offset: 2px; }
 
     /* ── BEFORE/AFTER SCRUBBER ────────────────────────── */
     .scrubber-wrap {
@@ -488,6 +495,7 @@
 <!-- ══════════════════ SERVICES ══════════════════ -->
 <section id="services" style="background:#EFE3D8; padding:100px 0;">
   <div class="max-w-7xl mx-auto px-6 md:px-10">
+  <div style="max-width:680px; margin:0 auto;">
 
     <div class="reveal mb-12">
       <p class="label" style="margin-bottom:12px;">Pricing</p>
@@ -508,10 +516,9 @@
       <button class="tab-btn"        onclick="switchTab('nails-feet')"  role="tab" aria-selected="false" aria-controls="tab-nails-feet">Nails — Feet</button>
     </div>
 
-    <div id="svc-layout" style="display:grid; grid-template-columns:1fr; gap:40px;">
-    <style>@media(min-width:768px){ #svc-layout { grid-template-columns: 1fr 1fr; } }</style>
+    <div style="max-width:680px; margin:0 auto;">
       <!-- Panel column -->
-      <div class="reveal" style="transition-delay:.22s; max-width:520px;">
+      <div class="reveal" style="transition-delay:.22s;">
 
         <!-- HAIR -->
         <div id="tab-hair" class="tab-panel active" role="tabpanel">
@@ -620,34 +627,20 @@
         </div>
       </div>
 
-      <!-- Sidebar image + CTA — desktop only -->
-      <div class="reveal from-right hidden md:flex flex-col justify-start items-start gap-8 pl-10" style="transition-delay:.3s; border-left:1px solid rgba(212,168,160,.28);">
-        <div style="border-radius:2px; overflow:hidden; width:100%; max-width:320px;" class="shadow-warm-lg">
-          <img
-            src="brand_assets/brand_assets/IMG_3913.jpg"
-            alt="Mélo signature takeaway cup"
-            style="width:100%; aspect-ratio:4/5; object-fit:cover;"
-          >
-        </div>
-        <a
-          href="https://wa.me/97317772209?text=Hi%2C%20I'd%20like%20to%20book%20an%20appointment"
-          class="btn-primary"
-          target="_blank" rel="noopener noreferrer"
-        >
-          <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-          Book via WhatsApp
-        </a>
-      </div>
     </div>
 
-    <!-- Mobile CTA -->
-    <div class="md:hidden reveal" style="transition-delay:.28s; margin-top:36px;">
+    <!-- CTA -->
+    <div class="reveal" style="transition-delay:.28s; margin-top:36px;">
       <a
         href="https://wa.me/97317772209?text=Hi%2C%20I'd%20like%20to%20book%20an%20appointment"
-        class="btn-primary w-full justify-center"
+        class="btn-primary"
         target="_blank" rel="noopener noreferrer"
-      >Book via WhatsApp</a>
+      >
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        Book via WhatsApp
+      </a>
     </div>
+  </div><!-- /centering wrapper -->
   </div>
 </section>
 
@@ -661,7 +654,7 @@
         <img
           src="brand_assets/brand_assets/IMG_3921.jpg"
           alt="Mélo Beauty Lounge interior — nail polish display and café bar"
-          style="width:100%; aspect-ratio:4/5; object-fit:cover;"
+          style="width:100%; aspect-ratio:16/9; object-fit:cover; object-position:center 40%;"
         >
       </div>
       <!-- Text -->
@@ -695,52 +688,8 @@
       <h2 class="section-title reveal" style="transition-delay:.08s;">Gallery</h2>
     </div>
 
-    <!-- Before / After scrubber -->
-    <div class="reveal from-scale" style="transition-delay:.15s; margin-bottom:16px;">
-      <p class="label" style="margin-bottom:14px;">Hair — Before &amp; After</p>
-      <p style="font-size:13px; color:#3A3A3A; margin-bottom:20px;">Drag the handle to compare.</p>
-    </div>
-
-    <div class="reveal from-big" style="transition-delay:.24s; display:flex; justify-content:flex-start;">
-      <div
-        id="scrubber"
-        class="scrubber-wrap shadow-warm-lg"
-        style="width:100%; max-width:420px; aspect-ratio:9/16; max-height:80vh;"
-      >
-        <!-- AFTER base -->
-        <img
-          class="scrubber-after"
-          src="brand_assets/brand_assets/IMG_3923.jpg"
-          alt="After: styled blow-out hair"
-          draggable="false"
-          style="position:absolute; inset:0;"
-        >
-        <!-- BEFORE clipped -->
-        <img
-          id="sc-before"
-          class="scrubber-before"
-          src="brand_assets/brand_assets/IMG_3922.jpg"
-          alt="Before: natural curly hair"
-          draggable="false"
-          style="clip-path: inset(0 50% 0 0);"
-        >
-        <!-- Handle line -->
-        <div id="sc-handle" class="scrubber-handle-line" style="left:50%;">
-          <div class="scrubber-handle-circle" id="sc-circle">
-            <!-- Left arrow -->
-            <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#1A1A1A" stroke-width="2.5" aria-hidden="true"><polyline points="15 18 9 12 15 6"/></svg>
-            <!-- Right arrow -->
-            <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#1A1A1A" stroke-width="2.5" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg>
-          </div>
-        </div>
-        <!-- Label chips -->
-        <span class="scrubber-chip" style="left:14px;">Before</span>
-        <span class="scrubber-chip" style="right:14px;">After</span>
-      </div>
-    </div>
-
-    <!-- Gallery grid -->
-    <div class="mt-16">
+    <!-- Nail Work grid — first -->
+    <div>
       <p class="label reveal" style="margin-bottom:20px; transition-delay:.05s;">Nail Work</p>
       <div
         class="gallery-stagger"
@@ -768,6 +717,50 @@
         </div>
         <div class="gallery-item shadow-warm" style="aspect-ratio:1;">
           <img src="brand_assets/brand_assets/IMG_3919.jpg" alt="French tips with moon and evil eye art" loading="lazy">
+        </div>
+      </div>
+    </div>
+
+    <!-- Before / After scrubber — below grid -->
+    <div style="margin-top:64px;">
+      <div class="reveal from-scale" style="margin-bottom:20px; text-align:center;">
+        <p class="label" style="margin-bottom:10px;">Hair — Before &amp; After</p>
+        <p style="font-size:13px; color:#3A3A3A;">Drag the handle to compare.</p>
+      </div>
+
+      <div class="reveal from-big" style="transition-delay:.15s; display:flex; justify-content:center;">
+        <div
+          id="scrubber"
+          class="scrubber-wrap shadow-warm-lg"
+          style="width:100%; max-width:640px; aspect-ratio:3/4;"
+        >
+          <!-- AFTER base -->
+          <img
+            class="scrubber-after"
+            src="brand_assets/brand_assets/IMG_3923.jpg"
+            alt="After: styled blow-out hair"
+            draggable="false"
+            style="position:absolute; inset:0;"
+          >
+          <!-- BEFORE clipped -->
+          <img
+            id="sc-before"
+            class="scrubber-before"
+            src="brand_assets/brand_assets/IMG_3922.jpg"
+            alt="Before: natural curly hair"
+            draggable="false"
+            style="clip-path: inset(0 50% 0 0);"
+          >
+          <!-- Handle line -->
+          <div id="sc-handle" class="scrubber-handle-line" style="left:50%;">
+            <div class="scrubber-handle-circle" id="sc-circle">
+              <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#1A1A1A" stroke-width="2.5" aria-hidden="true"><polyline points="15 18 9 12 15 6"/></svg>
+              <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#1A1A1A" stroke-width="2.5" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg>
+            </div>
+          </div>
+          <!-- Label chips -->
+          <span class="scrubber-chip" style="left:14px;">Before</span>
+          <span class="scrubber-chip" style="right:14px;">After</span>
         </div>
       </div>
     </div>
