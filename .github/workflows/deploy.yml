@@ -13,9 +13,14 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      - name: Prepare static output
+        run: |
+          mkdir -p _site/brand_assets/brand_assets
+          cp Website/index.html _site/index.html
+          cp -r Website/brand_assets/brand_assets/. _site/brand_assets/brand_assets/
+
       - name: Deploy to gh-pages
         uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: Website
-          exclude_assets: '.github,node_modules,app,components,lib,public,*.ts,*.tsx,*.mjs,*.json,*.md,*.js'
+          publish_dir: _site
